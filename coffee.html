@@ -42,16 +42,25 @@
         <h4>Total: <span id="revenue"><!-- Revenue Message will show up here --></span></h4>
     </div>
 </div>
-
+<script src="https://code.jquery.com/jquery.js"></script>
 <script>
 
     // Set these 3 variables to their DOM elements
 
-    var myImage = document.getElementById("coffee_image");//.src="static/coffee_beans.jpg"; *This works too
-    var myRevenueMessage = document.getElementById("message");
-    myImage.setAttribute("src",'./static/coffee_beans.jpg');
 
-    // use this dictionary in further study step
+    var myImage = $("#coffee_image");
+    // var myRevenueMessage = document.getElementById("message");
+    var myRevenueMessage = $("#revenue");
+    // myImage.setAttribute("src",'./static/coffee_beans.jpg');
+    $("img#coffee_image").attr("src","static/coffee_beans.jpg");
+
+
+
+    // var myImage = document.getElementById("coffee_image");//.src="static/coffee_beans.jpg"; *This works too
+    // var myRevenueMessage = document.getElementById("message");
+
+
+    // myImage.setAttribute("src",'./static/coffee_beans.jpg');
     var prices = {
         "brew": 2.05,
         "espresso": 3.25,
@@ -60,15 +69,19 @@
     };
 
     function makeCoffee(){
-        myImage.src="static/coffee_machine.jpg";
-        setTimeout(coffeeMugShow, 500); // method will call function AFTER 500ms
+            $("img#coffee_image").attr("src","static/coffee_machine.jpg");
+        setTimeout(coffeeMugShow, 1500); // method will call function after 500ms
         
     };
     function coffeeMugShow(){
-        myImage.src="static/coffee_mug.jpg";
+        $("img#coffee_image").attr("src","static/coffee_mug.jpg");
 
     }
-    myImage.addEventListener('click',makeCoffee);
+    // myImage.addEventListener('click',makeCoffee);
+    $("img#coffee_image").on('click',makeCoffee);
+
+    
+
 </script>
 
 </body>
